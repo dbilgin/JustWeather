@@ -27,7 +27,7 @@ A standalone Wear OS weather app that displays current conditions, temperature, 
 
 1. Clone this repository
 2. Create `key.properties` file at the root
-3. Get your API key from [OpenWeatherMap](https://openweathermap.org/api) and add it to `local.properties`:
+3. Get your API key from [OpenWeatherMap](https://openweathermap.org/api) and add it to `key.properties`:
 
    ```
    WEATHER_API_KEY=your_api_key_here
