@@ -9,6 +9,7 @@ A standalone Wear OS weather app that displays current conditions, temperature, 
 - **Unit system support** - Switch between metric and imperial units
 - **Astronomy data** - Sunrise and sunset times for your selected location
 - **Wear OS complications** - Add weather to your watch face with automatic updates
+- **Wear OS tile** - Quick access weather tile that displays essential weather info and opens the app when tapped
 - **Standalone operation** - Works entirely on your watch without a phone connection
 - **Material icons** - Uses material icons to display weather status
 
@@ -31,13 +32,46 @@ A standalone Wear OS weather app that displays current conditions, temperature, 
 1. Clone this repository
 2. Copy `local.properties.example` to `local.properties`
 3. Get your API key from [OpenWeatherMap](https://openweathermap.org/api) and add it to `local.properties`:
+
    ```
    WEATHER_API_KEY=your_api_key_here
    ```
-   
+
    Note: The app uses OpenWeatherMap's Geocoding API to convert city names to coordinates (no location permissions required).
+
 4. Open the project in Android Studio
 5. Connect a Wear OS device or start an emulator
 6. Build and run the app
 
 On first launch, you'll be prompted to select your unit system and enter a city name.
+
+## Usage
+
+### Main App
+
+The main app displays comprehensive weather information including:
+
+- City name
+- Current temperature (large, prominent display)
+- Weather condition description
+- Weather icon (adapts to day/night based on sunrise/sunset)
+- Humidity percentage
+- Wind speed (formatted with locale-aware number formatting)
+- Attribution
+
+### Complications
+
+Add weather complications to your watch face:
+
+- **Short Text** - Shows temperature with weather icon
+- **Ranged Value** - Shows temperature as a range with visual indicator
+
+Complications automatically update every hour (configurable via `UPDATE_PERIOD_SECONDS` in AndroidManifest.xml).
+
+### Tile
+
+Add the weather tile to your watch's tile carousel:
+
+- Displays essential weather information: city name, temperature, and condition
+- Compact design optimized for tile viewport
+- Tap anywhere on the tile to open the main app
